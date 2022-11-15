@@ -8,3 +8,11 @@ pamatyti jo pateikto svorio kovertavimą į:
 Pastaba: rezultatas turi būti matomas pateikus formą ir atvaizduojamas
 <div id="output"></div> viduje. Gautus atsakymus stilizuokite naudojant CSS;
 ------------------------------------------------------------------- */
+
+function weightConverter(valNum) {
+    document.getElementById("outputLbs").innerHTML=valNum/2.2046, 
+    document.getElementById("outputG").innerHTML=valNum/0.0010000, 
+    document.getElementById("outputOz").innerHTML=valNum/35.274;
+}
+
+
