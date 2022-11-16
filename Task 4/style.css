@@ -28,4 +28,69 @@
   color: #333;
 }
 
+#output {
+  max-width: 1488px;
+  margin: 10px 10px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 50px;
+}
+.card {
+  border: 1px solid rgb(192, 159, 159);
+  padding: 14px;
+  border-radius: 5px;
+  border-width: 2px;
+  position: relative;
+}
 
+.card li {
+  color: rgb(192, 159, 159);
+}
+.card ul {
+  height: 250px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.card h3 {
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 1em;
+}
+
+.dropdownIcon {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  color: rgb(192, 159, 159);
+}
+
+@media screen and (min-device-width: 500px) and (min-width: 500px) {
+  #output {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .card ul {
+    max-height: 500px;
+  }
+}
+
+@media screen and (min-device-width: 1024px) and (min-width: 1024px) {
+  #output {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .card ul {
+    max-height: 320px;
+  }
+}
+
+@media screen and (min-device-width: 1440px) and (min-width: 1440px) {
+  #output {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .card ul {
+    max-height: 200px;
+  }
+  .container {
+    align-items: center;
+  }
+}
