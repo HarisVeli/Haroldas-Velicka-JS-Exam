@@ -13,39 +13,48 @@ būti stilizuota su CSS ir būti responsive;
 
 const ENDPOINT = "https://api.github.com/users";
 
-
 const showUsersBtn = document.getElementById("btn");
+const output = document.getElementById("output");
 const message = document.getElementById("message");
 
-showUsersBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  getData(ENDPOINT);
-  showUsersBtn.style.display = "none";
-  message.style.display = "none";
-});
+showUsersBtn.addEventListener("click", createCards);
 
 function getData(url) {
   return fetch(url)
-    .then((resp) => resp.json())
-    .then((dataInJs) => {
-      generateCards(dataInJs, "output");
-    })
-    .catch((err) => console.warn("HUSTON WE HAVE A PROBLEM", err));
+    .then((response) => response.json())
+    .then((data) => data)
+    .catch((error) => console.warn("Error date source..", error));
 }
 
-function generateCards(arr, elId) {
-  const dest = document.getElementById(elId);
-  if (!dest) throw "BIG PROBLEM";
+function createCards() {
+  if (showUsersBtn.textContent === "Hide Users") {
+    showUsersBtn.textContent = "Show Users";
+    message.style.display = "block";
+    output.innerHTML = "";
+    output.append(message);
+  } else {
+    getData(ENDPOINT).then((dataArr) => {
+      dataArr.forEach((object) => {
+        createOneCard(object, output);
+      });
+    });
+    showUsersBtn.textContent = "Hide Users";
+    message.style.display = "none";
+  }
+}
 
-  const htmlUsrArr = arr.map((p) => {
-    const articleEl = document.createElement("article");
-    articleEl.className = "card";
-    articleEl.innerHTML = `
-        <h3>${p.login}</h3>
-        <img src="${p.avatar_url}"></img>
-        `;
-    return articleEl;
-  });
-  console.log("htmlElsArr ===", htmlUsrArr);
-  htmlUsrArr.forEach((el) => dest.append(el));
+function createOneCard(obj, dest) {
+  const divElement = document.createElement("div");
+  divElement.className = "card";
+
+  const imgElement = document.createElement("img");
+  imgElement.className = "user_avatar";
+  imgElement.src = obj.avatar_url;
+
+  const pElement = document.createElement("p");
+  pElement.className = "user_login";
+  pElement.textContent = obj.login;
+
+  divElement.append(imgElement, pElement);
+  dest.append(divElement);
 }
