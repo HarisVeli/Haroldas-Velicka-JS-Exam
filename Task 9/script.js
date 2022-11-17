@@ -22,5 +22,7 @@ class Movie {
   }
   
   const mo = new Movie("Fast and furious", "Vin Diesel", 1500000000);
+  const mo2 = new Movie("Redirected", "Vinnie Jones", 2700000);
   
   console.log("mo.wasExpensive() ===", mo.wasExpensive());
+  console.log("mo2.wasExpensive() ===", mo.wasExpensive());
