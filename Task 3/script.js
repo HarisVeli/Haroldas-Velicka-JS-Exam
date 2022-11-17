@@ -17,7 +17,7 @@ const showUsersBtn = document.getElementById("btn");
 const output = document.getElementById("output");
 const message = document.getElementById("message");
 
-showUsersBtn.addEventListener("click", createCards);
+showUsersBtn.addEventListener("click", newCards);
 
 function getData(url) {
   return fetch(url)
@@ -26,7 +26,7 @@ function getData(url) {
     .catch((error) => console.warn("Error date source..", error));
 }
 
-function createCards() {
+function newCards() {
   if (showUsersBtn.textContent === "Hide Users") {
     showUsersBtn.textContent = "Show Users";
     message.style.display = "block";
