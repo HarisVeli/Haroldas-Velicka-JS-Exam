@@ -69,7 +69,7 @@
 }
 
 .card {
-  width: 120px;
+  width: 220px;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -94,12 +94,6 @@
 
 .user_avatar:hover {
   scale: 1.5;
-}
-
-@media screen and (min-width: 768px) {
-  .card {
-    width: 210px;
-  }
 }
 
 @media screen and (min-width: 1024px) {
