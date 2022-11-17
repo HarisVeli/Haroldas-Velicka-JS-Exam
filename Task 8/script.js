@@ -20,3 +20,8 @@ class Calculator {
       return a / b;
     }
   }
+
+  console.log("sum  ===", sum);
+  console.log("subtraction ===", subtraction);
+  console.log("multiplication ===", multiplication);
+  console.log("division ===", division);
